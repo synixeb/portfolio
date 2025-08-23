@@ -9,10 +9,9 @@
 </section>
 
 <section class="previews">
-  <div class="preview">
+  <a class="preview" routerLink="/frise" aria-label="Voir la frise chronologique">
     <div class="header">
       <h2>Frise chronologique</h2>
-      <a routerLink="/frise">Tout voir</a>
     </div>
     <ul>
       <li *ngFor="let it of timelinePreview">
@@ -20,25 +19,23 @@
         <span class="title">{{ it.title }}</span>
       </li>
     </ul>
-  </div>
+  </a>
 
-  <div class="preview">
+  <a class="preview" routerLink="/competences" aria-label="Voir les compétences">
     <div class="header">
       <h2>Compétences</h2>
-      <a routerLink="/competences">Tout voir</a>
     </div>
     <ul class="chips">
       <li *ngFor="let s of skillsPreview">{{ s.name }}</li>
     </ul>
-  </div>
+  </a>
 
-  <div class="preview">
+  <a class="preview" routerLink="/projets" aria-label="Voir les projets">
     <div class="header">
       <h2>Projets</h2>
-      <a routerLink="/projets">Tout voir</a>
     </div>
     <ul>
       <li *ngFor="let p of projectsPreview">{{ p.name }} — {{ p.tech.join(', ') }}</li>
     </ul>
-  </div>
+  </a>
 </section>
