@@ -10,6 +10,15 @@
         <span class="category" *ngIf="s.category">{{ s.category }}</span>
         <span class="level" *ngIf="s.level">{{ s.level }}%</span>
       </div>
+      <div class="related" *ngIf="projectsBySkill[s.name]?.length">
+        <div class="related-title">Projets liés:</div>
+        <ul class="related-list">
+          <li *ngFor="let p of projectsBySkill[s.name]">
+            <a *ngIf="p.repo; else plain" [href]="p.repo" target="_blank" rel="noopener">{{ p.name }}</a>
+            <ng-template #plain>{{ p.name }}</ng-template>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

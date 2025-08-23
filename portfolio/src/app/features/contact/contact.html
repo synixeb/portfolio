@@ -1,0 +1,41 @@
+    <section class="contact">
+      <div class="container grid">
+        <div class="panel coords">
+          <h1>Contact</h1>
+          <ul class="list" aria-label="Mes coordonnées">
+            <li>
+              <span class="icon" aria-hidden="true">📧</span>
+              <a [href]="'mailto:' + email">{{ email }}</a>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">📱</span>
+              <a [href]="telHref">{{ phone }}</a>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">📍</span>
+              <span>{{ location }}</span>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">🔗</span>
+              <a [href]="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">💻</span>
+              <a [href]="github" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel cv">
+          <h2>Mon CV</h2>
+          <p>Téléchargez mon CV au format PDF.</p>
+          <div class="actions">
+            <a class="btn" [href]="cvUrl" download aria-label="Télécharger mon CV (PDF)">Télécharger le CV</a>
+            <a class="btn btn--secondary" [href]="cvUrl" target="_blank" rel="noopener">Ouvrir dans le navigateur</a>
+          </div>
+          <div class="preview-wrap" aria-hidden="true">
+            <iframe class="preview" [src]="sanitizedCvUrl" title="Aperçu du CV" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>

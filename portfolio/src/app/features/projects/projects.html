@@ -2,6 +2,7 @@
   <h2>Projets</h2>
   <div class="grid">
     <article class="card" *ngFor="let p of projects">
+      <img *ngIf="p.image" [src]="p.image" [alt]="p.name" loading="lazy" />
       <div class="header">
         <h3>{{ p.name }}</h3>
         <div class="links">
@@ -9,6 +10,7 @@
           <a *ngIf="p.repo" [href]="p.repo" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
+      <p class="type">{{ p.type }}</p>
       <p class="desc">{{ p.description }}</p>
       <ul class="tech">
         <li class="tag" *ngFor="let t of p.tech">{{ t }}</li>
