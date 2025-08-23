@@ -13,14 +13,11 @@ section.timeline {
       top: 0;
       bottom: 0;
       width: 2px;
-      background: linear-gradient(180deg,#f0060b,#7702ff);
-      opacity: .3;
+      background: linear-gradient(180deg,var(--accent),var(--primary));
+      opacity: .35;
     }
   }
-  .item {
-    position: relative;
-    margin-bottom: 1rem;
-  }
+  .item { position: relative; margin-bottom: 1rem; }
   .dot {
     position: absolute;
     left: -0.15rem;
@@ -28,11 +25,11 @@ section.timeline {
     width: .75rem;
     height: .75rem;
     border-radius: 999px;
-    background: #7702ff;
-    box-shadow: 0 0 0 4px rgba(119,2,255,.15);
+    background: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
   }
-  .content { margin-left: .5rem; }
-  .meta { color: #666; font-size: .85rem; }
+  .content { margin-left: .5rem; padding:.5rem .65rem; border-radius: calc(var(--radius) - 6px); background: var(--surface); border:1px solid var(--border); }
+  .meta { color: var(--muted); font-size: .85rem; }
   .title { margin: .125rem 0; font-size: 1.05rem; }
-  .desc { margin: 0; color: #333; }
+  .desc { margin: 0; color: var(--text); opacity:.9; }
 }

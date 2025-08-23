@@ -10,8 +10,8 @@ import { Portfolio, TimelineItem, Skill, Project } from '../../core/portfolio.se
   styleUrl: './home.scss'
 })
 export class Home {
-  name = signal('Jeune Développeur');
-  about = signal(`Développeur passionné par le web (Angular/Node.js). J’aime créer des interfaces soignées et des apps utiles.`);
+  name = signal('Evan Bertin');
+  about = signal(`Développeur passionné.`);
 
   timelinePreview: TimelineItem[] = [];
   skillsPreview: Skill[] = [];

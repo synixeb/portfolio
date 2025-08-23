@@ -1,15 +1,11 @@
 <section class="hero">
   <h1>Bonjour, je suis {{ name() }}</h1>
   <p class="about">{{ about() }}</p>
-  <nav class="cta">
-    <a routerLink="/frise">Voir la frise</a>
-    <a routerLink="/competences">Mes compétences</a>
-    <a routerLink="/projets">Mes projets</a>
-  </nav>
+  <a class="button" routerLink="/projets" aria-label="Voir mes projets">Voir mes projets</a>
 </section>
 
 <section class="previews">
-  <a class="preview" routerLink="/frise" aria-label="Voir la frise chronologique">
+  <a class="card preview" routerLink="/frise" aria-label="Voir la frise chronologique">
     <div class="header">
       <h2>Frise chronologique</h2>
     </div>
@@ -21,16 +17,16 @@
     </ul>
   </a>
 
-  <a class="preview" routerLink="/competences" aria-label="Voir les compétences">
+  <a class="card preview" routerLink="/competences" aria-label="Voir les compétences">
     <div class="header">
       <h2>Compétences</h2>
     </div>
     <ul class="chips">
-      <li *ngFor="let s of skillsPreview">{{ s.name }}</li>
+      <li class="tag" *ngFor="let s of skillsPreview">{{ s.name }}</li>
     </ul>
   </a>
 
-  <a class="preview" routerLink="/projets" aria-label="Voir les projets">
+  <a class="card preview" routerLink="/projets" aria-label="Voir les projets">
     <div class="header">
       <h2>Projets</h2>
     </div>

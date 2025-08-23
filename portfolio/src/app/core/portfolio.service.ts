@@ -28,9 +28,9 @@ export type Project = {
 export class Portfolio {
   getTimeline(): TimelineItem[] {
     return [
-      { date: '2023', title: 'Baccalauréat Scientifique / Tech', description: 'Découverte du code et premiers projets perso.', type: 'formation' },
+      { date: '2024-2025', title: 'BUT 3° année - Alternance Développeur Full‑Stack', description: 'NestJS, React, TypeScript, tests E2E.', type: 'experience' },
       { date: '2024', title: 'Stage Développeur Frontend', description: 'Angular/TypeScript, contribution à un module UI.', type: 'experience' },
-      { date: '2025', title: 'Alternance Développeur Full‑Stack', description: 'Node.js, Angular, CI/CD, tests E2E.', type: 'experience' }
+      { date: '2023', title: 'Baccalauréat Scientifique / Tech', description: 'Découverte du code et premiers projets perso.', type: 'formation' },
     ];
   }
 

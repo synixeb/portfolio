@@ -1,8 +1,17 @@
-<header class="navbar">
-  <nav>
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
-    <a routerLink="/frise" routerLinkActive="active">Frise</a>
-    <a routerLink="/competences" routerLinkActive="active">Compétences</a>
-    <a routerLink="/projets" routerLinkActive="active">Projets</a>
-  </nav>
+<header class="navbar" role="banner">
+  <div class="inner container">
+    <a class="brand" routerLink="/" aria-label="Accueil">
+      <span class="name">Portfolio</span>
+    </a>
+    <nav class="links" aria-label="Navigation principale">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+      <a routerLink="/frise" routerLinkActive="active">Frise</a>
+      <a routerLink="/competences" routerLinkActive="active">Compétences</a>
+      <a routerLink="/projets" routerLinkActive="active">Projets</a>
+    </nav>
+    <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-pressed]="isDark" aria-label="Basculer le thème">
+      <span class="sun" aria-hidden="true">☀️</span>
+      <span class="moon" aria-hidden="true">🌙</span>
+    </button>
+  </div>
 </header>
