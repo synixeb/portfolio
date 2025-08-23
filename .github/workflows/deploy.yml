@@ -67,9 +67,8 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           protocol: ftps
-          # port: ${{ secrets.HOSTINGER_PORT }}   # optionnel (par défaut 21 pour FTPS)
           local-dir: portfolio/dist/portfolio/browser/
-          server-dir: ${{ secrets.HOSTINGER_TARGET }}
+          server-dir: ./
           dangerous-clean-slate: false
           exclude: |
             **/.git*
