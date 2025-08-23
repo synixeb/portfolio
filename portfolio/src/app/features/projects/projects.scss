@@ -1,0 +1,23 @@
+.projects {
+  h2 { margin: 0 0 1rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: .5rem;
+    padding: .75rem;
+    background: #fff;
+  }
+  .header {
+    display:flex; align-items:center; justify-content:space-between;
+    h3 { margin: 0; font-size: 1.05rem; }
+    .links { display:flex; gap:.5rem; a { font-size:.85rem; } }
+  }
+  .desc { color:#333; margin:.5rem 0; }
+  .tech { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:.5rem;
+    li { font-size:.8rem; background:#f5f5f7; padding:.25rem .5rem; border-radius:999px; }
+  }
+}

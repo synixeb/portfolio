@@ -1,0 +1,44 @@
+<section class="hero">
+  <h1>Bonjour, je suis {{ name() }}</h1>
+  <p class="about">{{ about() }}</p>
+  <nav class="cta">
+    <a routerLink="/frise">Voir la frise</a>
+    <a routerLink="/competences">Mes compétences</a>
+    <a routerLink="/projets">Mes projets</a>
+  </nav>
+</section>
+
+<section class="previews">
+  <div class="preview">
+    <div class="header">
+      <h2>Frise chronologique</h2>
+      <a routerLink="/frise">Tout voir</a>
+    </div>
+    <ul>
+      <li *ngFor="let it of timelinePreview">
+        <span class="date">{{ it.date }}</span>
+        <span class="title">{{ it.title }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="preview">
+    <div class="header">
+      <h2>Compétences</h2>
+      <a routerLink="/competences">Tout voir</a>
+    </div>
+    <ul class="chips">
+      <li *ngFor="let s of skillsPreview">{{ s.name }}</li>
+    </ul>
+  </div>
+
+  <div class="preview">
+    <div class="header">
+      <h2>Projets</h2>
+      <a routerLink="/projets">Tout voir</a>
+    </div>
+    <ul>
+      <li *ngFor="let p of projectsPreview">{{ p.name }} — {{ p.tech.join(', ') }}</li>
+    </ul>
+  </div>
+</section>

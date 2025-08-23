@@ -1,0 +1,15 @@
+<section class="skills">
+  <h2>Compétences</h2>
+  <div class="grid">
+    <div class="card" *ngFor="let s of skills">
+      <div class="name">{{ s.name }}</div>
+      <div class="bar">
+        <div class="fill" [style.width.%]="s.level || 0"></div>
+      </div>
+      <div class="meta">
+        <span class="category" *ngIf="s.category">{{ s.category }}</span>
+        <span class="level" *ngIf="s.level">{{ s.level }}%</span>
+      </div>
+    </div>
+  </div>
+</section>

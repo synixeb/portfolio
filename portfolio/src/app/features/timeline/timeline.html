@@ -1,0 +1,17 @@
+<section class="timeline">
+  <h2>Frise chronologique</h2>
+  <ul>
+    <li *ngFor="let it of items; let i = index" class="item">
+      <div class="dot"></div>
+      <div class="content">
+        <div class="meta">
+          <span class="date">{{ it.date }}</span>
+          <span class="type" *ngIf="it.type">• {{ it.type }}</span>
+        </div>
+        <h3 class="title">{{ it.title }}</h3>
+        <p class="desc" *ngIf="it.description">{{ it.description }}</p>
+      </div>
+    </li>
+  </ul>
+  <p *ngIf="!items?.length">Aucun élément pour le moment.</p>
+  </section>
