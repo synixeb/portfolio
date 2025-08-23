@@ -43,6 +43,23 @@ jobs:
           </IfModule>
           EOF
 
+      - name: Validate required secrets
+        env:
+          S_HOST: ${{ secrets.HOSTINGER_HOST }}
+          S_USER: ${{ secrets.HOSTINGER_USERNAME }}
+          S_PASS: ${{ secrets.HOSTINGER_PASSWORD }}
+          S_TARGET: ${{ secrets.HOSTINGER_TARGET }}
+        run: |
+          missing=()
+          [ -z "$S_HOST" ] && missing+=("HOSTINGER_HOST")
+          [ -z "$S_USER" ] && missing+=("HOSTINGER_USERNAME")
+          [ -z "$S_PASS" ] && missing+=("HOSTINGER_PASSWORD")
+          [ -z "$S_TARGET" ] && missing+=("HOSTINGER_TARGET")
+          if [ ${#missing[@]} -ne 0 ]; then
+            echo "Secrets manquants: ${missing[*]}"
+            exit 1
+          fi
+          
       - name: Deploy via FTPS to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
