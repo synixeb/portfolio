@@ -11,7 +11,7 @@ import { Portfolio, TimelineItem, Skill, Project } from '../../core/portfolio.se
 })
 export class Home {
   name = signal('Evan Bertin');
-  about = signal(`Développeur passionné.`);
+  about = signal(`Développeur passionné`);
 
   timelinePreview: TimelineItem[] = [];
   skillsPreview: Skill[] = [];
