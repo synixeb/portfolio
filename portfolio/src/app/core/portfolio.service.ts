@@ -12,6 +12,7 @@ export type Skill = {
   name: string;
   level?: number; // 0-100
   category?: string[];
+  description?: string;
   icon?: string; // optional icon name/url
 };
 
@@ -39,9 +40,9 @@ export class Portfolio {
 
   getSkills(): Skill[] {
     return [
-      { name: 'Angular', level: 75, category: ['Frontend', 'Framework'] },
-      { name: 'TypeScript', level: 80, category: ['Frontend', 'Language'] },
-      { name: 'HTML/CSS/SCSS', level: 85, category: ['Frontend', 'Markup', 'Style', 'Language'] },
+      { name: 'Angular', category: ['Frontend', 'Framework'], description: 'Framework front-end moderne pour construire des SPA réactives.', icon: '/assets/images/angular.png' },
+      { name: 'TypeScript', level: 80, category: ['Frontend', 'Language'], description: 'Superset de JavaScript avec typage statique; utilisé sur la plupart de mes projets.', icon: '/assets/images/typescript.png' },
+      { name: 'HTML/CSS/SCSS', level: 85, category: ['Frontend', 'Markup', 'Style', 'Language'], description: 'Maîtrise de la structure et du style, création d’interfaces responsives.', icon: '/assets/images/htmlcss.png' },
       { name: 'Tkinter', level: 80, category: ['Frontend', 'Framework'] },
       { name: 'Vue.js', level: 70, category: ['Frontend', 'Framework'] },
       { name: 'JavaScript', level: 80, category: ['Frontend', 'Language'] },

@@ -85,10 +85,43 @@ img, svg, video { display:block; max-width:100%; }
 
 /* Container */
 .container {
-	max-width: 1120px;
-	margin: 0 auto;
-	padding: 1rem;
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 1rem;
 }
+
+/* Responsive helpers */
+/* Mobile-first: make typography and spacing scale smoothly */
+html { font-size: 15px; }
+@media (min-width: 480px) { html { font-size: 15.5px; } }
+@media (min-width: 768px) { html { font-size: 16px; } }
+@media (min-width: 1024px) { html { font-size: 16.5px; } }
+
+/* Utility: stacked grid for small screens */
+.grid-responsive {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.9rem;
+}
+@media (min-width: 640px) {
+	.grid-responsive { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+	.grid-responsive { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Simple responsive navbar helper */
+.nav-inline { display:flex; gap: .6rem; align-items:center; }
+.nav-inline .menu { display:none; }
+@media (min-width: 720px) {
+	.nav-inline .menu { display:flex; }
+}
+
+/* Make images adapt inside cards */
+.card img { width:100%; height:auto; display:block; border-radius: 6px; }
+
+/* Ensure modals are full width on small screens */
+.modal-card { margin: 0 0.5rem; }
 
 /* Liens & boutons */
 a { color: var(--primary); text-decoration: none; }
@@ -120,5 +153,9 @@ a:hover { text-decoration: underline; }
 
 /* Media queries utilitaires */
 @media (max-width: 640px) {
-	.container { padding: .85rem; }
+	.container { padding: .75rem; }
+	.card { border-radius: calc(var(--radius) - 6px); }
 }
+
+/* Defensive: ensure cards remain clickable above accidental overlays */
+.card { position: relative; z-index: 5; pointer-events: auto; }

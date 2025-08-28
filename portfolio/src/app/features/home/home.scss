@@ -45,10 +45,15 @@
 .hero .cta a.btn--secondary { background: linear-gradient(90deg, var(--surface-2), var(--surface)); color: var(--text); border-color: var(--border); }
 
 .previews {
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit, minmax(260px, 1fr));
-    gap:1rem;
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:.9rem;
+}
+@media (min-width: 640px) {
+    .previews { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .previews { grid-template-columns: repeat(3, 1fr); }
 }
 
 .preview { 

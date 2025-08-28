@@ -1,0 +1,46 @@
+.qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.qr h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.qr .code {
+  background: var(--surface-2);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.qr .actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.qr .actions button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qr .actions button:hover {
+  /* Avoid Sass color functions with CSS variables; use brightness filter instead */
+  filter: brightness(0.95);
+}
