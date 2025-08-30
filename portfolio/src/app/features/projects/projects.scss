@@ -1,5 +1,7 @@
 .projects {
   h2 { margin: 0 0 1rem; }
+  .search { margin: .5rem 0 1rem; display:flex; justify-content:flex-start; }
+  .search input { width:100%; max-width:420px; padding:.55rem .7rem; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); }
   .grid {
     display: grid;
     grid-template-columns: 1fr;

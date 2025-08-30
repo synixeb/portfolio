@@ -1,36 +1,40 @@
 <section class="hero">
-  <h1>Bonjour, je suis {{ name() }}</h1>
-  <p class="about">{{ about() }}</p>
-</section>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1>Bonjour, je suis {{ profile?.name }}</h1>
+      <p class="about">{{ profile?.about }}</p>
 
-<section class="previews">
-  <a class="card preview" routerLink="/frise" aria-label="Voir la frise chronologique">
-    <div class="header">
-      <h2>Frise chronologique</h2>
+      <div class="cta">
+        <a class="btn" href="assets/documents/cv.pdf" download aria-label="Télécharger le CV">Télécharger le CV</a>
+        <a class="btn btn--secondary" routerLink="/contact" aria-label="Me contacter">Me contacter</a>
+        <a class="btn" routerLink="/projets" aria-label="Voir les projets">Voir mes projets</a>
+      </div>
+      
+          <div class="side-projects">
+          <app-projects></app-projects>
+        </div>
     </div>
-    <ul>
-      <li *ngFor="let it of timelinePreview">
-        <span class="date">{{ it.date }}</span>
-        <span class="title">{{ it.title }}</span>
-      </li>
-    </ul>
-  </a>
 
-  <a class="card preview" routerLink="/competences" aria-label="Voir les compétences">
-    <div class="header">
-      <h2>Compétences</h2>
-    </div>
-    <ul class="chips">
-      <li class="tag" *ngFor="let s of skillsPreview">{{ s.name }}</li>
-    </ul>
-  </a>
+    <div class="hero-meta" aria-label="Informations complémentaires">
+      <p class="role">{{ profile?.shortAbout }} • {{ profile?.location }}</p>
 
-  <a class="card preview" routerLink="/projets" aria-label="Voir les projets">
-    <div class="header">
-      <h2>Projets</h2>
+      <ul class="socials" aria-label="Réseaux sociaux">
+        <li><a href="{{ profile?.socials?.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="{{ profile?.socials?.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+
+      <ul class="stats" role="list" aria-label="Statistiques">
+        <li><strong>{{ profile?.xp }}</strong> ans d'expérience</li>
+        <li><strong>{{ profile?.nbProjects }}</strong> projets</li>
+      </ul>
+
+      <div class="featured">
+        <h3>Projet en vedette — {{ featuredProject?.name }}</h3>
+        <p>{{ featuredProject?.description }}</p>
+        <a class="btn btn--secondary" routerLink="/projets/portfolio" aria-label="Voir le projet">Voir le projet</a>
+      </div>
+        <app-timeline></app-timeline>
+
     </div>
-    <ul>
-      <li *ngFor="let p of projectsPreview">{{ p.name }} — {{ p.tech.join(', ') }}</li>
-    </ul>
-  </a>
+  </div>
 </section>

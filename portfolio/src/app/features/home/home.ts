@@ -1,25 +1,25 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
-import { Portfolio, TimelineItem, Skill, Project } from '../../core/portfolio.service';
+import { Portfolio, TimelineItem, Skill, Project, Profile } from '../../core/portfolio.service';
+import { Timeline } from '../timeline/timeline';
+import { Projects } from '../projects/projects';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, Timeline, Projects],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home {
-  name = signal('Evan Bertin');
-  about = signal(`Développeur passionné.`);
-
   timelinePreview: TimelineItem[] = [];
-  skillsPreview: Skill[] = [];
   projectsPreview: Project[] = [];
+  featuredProject: Project | null = null;
+  profile: Profile | null = null;
 
   constructor(private portfolio: Portfolio) {
-    this.timelinePreview = this.portfolio.getTimeline().slice(0, 3);
-    this.skillsPreview = this.portfolio.getSkills().slice(0, 6);
+  this.timelinePreview = this.portfolio.getTimeline().slice(0, 3);
     this.projectsPreview = this.portfolio.getProjects().slice(0, 3);
+  this.featuredProject = this.portfolio.getFeaturedProject('quiet');
+    this.profile = this.portfolio.getProfile();
   }
 }

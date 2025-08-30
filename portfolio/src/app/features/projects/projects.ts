@@ -10,7 +10,24 @@ import { Portfolio, Project } from '../../core/portfolio.service';
 })
 export class Projects {
   projects: Project[] = [];
+  searchTerm = '';
   constructor(private portfolio: Portfolio) {
     this.projects = this.portfolio.getProjects();
+  }
+
+  onSearch(value: string) {
+    this.searchTerm = value || '';
+  }
+
+  get filteredProjects(): Project[] {
+    const q = this.searchTerm.trim().toLowerCase();
+    if (!q) return this.projects;
+    return this.projects.filter(p => {
+      if (p.name.toLowerCase().includes(q)) return true;
+      for (const t of p.tech) {
+        if (t.toLowerCase().includes(q)) return true;
+      }
+      return false;
+    });
   }
 }

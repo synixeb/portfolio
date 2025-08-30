@@ -1,21 +1,27 @@
-import { Component, HostListener } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
-import { Portfolio, Skill, Project } from '../../core/portfolio.service';
+import { Component } from '@angular/core';
+import { Portfolio, Skill } from '../../core/portfolio.service';
 
 @Component({
   selector: 'app-skills',
-  imports: [NgFor, NgIf],
   templateUrl: './skills.html',
-  styleUrl: './skills.scss'
+  styleUrls: ['./skills.scss']
 })
 export class Skills {
   skills: Skill[] = [];
-  projectsBySkill: Record<string, Project[]> = {} as any;
-  selectedSkill: Skill | null = null;
-  selectedProjects: Project[] = [];
+  grouped: { type: string; items: Skill[] }[] = [];
   constructor(private portfolio: Portfolio) {
     this.skills = this.portfolio.getSkills();
-    this.projectsBySkill = this.portfolio.getSkillProjectMap();
+    this.buildGroups();
+  }
+
+  private buildGroups() {
+    const map = new Map<string, Skill[]>();
+    for (const s of this.skills) {
+      const t = s.type || 'Autre';
+      if (!map.has(t)) map.set(t, []);
+      map.get(t)!.push(s);
+    }
+    this.grouped = Array.from(map.entries()).map(([type, items]) => ({ type, items }));
   }
 
   openSkill(s: Skill) {
