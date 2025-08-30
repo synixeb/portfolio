@@ -1,31 +1,11 @@
-.skills {
+.skills-list {
   h2 { margin: 0 0 1rem; }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  .card { @extend .card; padding: .85rem; }
-  .name { font-weight: 700; margin-bottom: .5rem; }
-  .bar {
-    height: .55rem;
-    border-radius: 999px;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    .fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--primary));
-    }
-  }
-  .meta { display:flex; justify-content:space-between; color: var(--muted); font-size:.85rem; margin-top:.4rem; }
-}
-
-/* Transition douce des couleurs pendant le switch de thème */
-:host-context(.theme-transition) * {
-  transition: background-color .25s ease, color .25s ease, border-color .25s ease, fill .25s ease, stroke .25s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :host-context(.theme-transition) * { transition: none !important; }
+  .groups { display:flex; flex-direction:column; gap:1rem; }
+  .skills-group { background: transparent; }
+  .group-title { margin:0 0 .5rem; font-size:.95rem; color:var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .75rem; }
+  .card { padding:.7rem; position: relative; }
+  .name { font-weight:700; }
+  .meta { color: var(--muted); font-size:.85rem; margin-top:.35rem; }
+  .level-badge { position: absolute; top: .6rem; right: .6rem; background: var(--surface-2); border:1px solid var(--border); padding: .2rem .5rem; border-radius: 999px; font-size: .75rem; }
 }

@@ -1,7 +1,10 @@
 <section class="projects">
   <h2>Projets</h2>
+    <div class="search">
+      <input #q type="search" placeholder="Rechercher par nom ou technologie" (input)="onSearch(q.value)" aria-label="Rechercher des projets" />
+    </div>
   <div class="grid">
-    <article class="card" *ngFor="let p of projects">
+  <article class="card" *ngFor="let p of filteredProjects">
       <img *ngIf="p.image" [src]="p.image" [alt]="p.name" loading="lazy" />
       <div class="header">
         <h3>{{ p.name }}</h3>
@@ -16,5 +19,6 @@
         <li class="tag" *ngFor="let t of p.tech">{{ t }}</li>
       </ul>
     </article>
+  <div class="no-results" *ngIf="filteredProjects.length === 0">Aucun projet ne correspond à votre recherche.</div>
   </div>
 </section>

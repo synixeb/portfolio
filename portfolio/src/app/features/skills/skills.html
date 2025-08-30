@@ -1,24 +1,18 @@
-<section class="skills">
+<section class="skills-list">
   <h2>Compétences</h2>
-  <div class="grid">
-    <div class="card" *ngFor="let s of skills">
-      <div class="name">{{ s.name }}</div>
-      <div class="bar">
-        <div class="fill" [style.width.%]="s.level || 0"></div>
-      </div>
-      <div class="meta">
-        <span class="category" *ngIf="s.category">{{ s.category }}</span>
-        <span class="level" *ngIf="s.level">{{ s.level }}%</span>
-      </div>
-      <div class="related" *ngIf="projectsBySkill[s.name]?.length">
-        <div class="related-title">Projets liés:</div>
-        <ul class="related-list">
-          <li *ngFor="let p of projectsBySkill[s.name]">
-            <a *ngIf="p.repo; else plain" [href]="p.repo" target="_blank" rel="noopener">{{ p.name }}</a>
-            <ng-template #plain>{{ p.name }}</ng-template>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="groups">
+    @for (g of grouped; track $index) {
+        <section class="skills-group" >
+            <h3 class="group-title">{{ g.type }}</h3>
+            <div class="grid">
+                @for (s of g.items; track $index) {
+                    <article class="card" >
+                        <div class="name">{{ s.name }}</div>
+                        <div class="meta">{{ s.category?.join(' • ') }}</div>
+                    </article>
+                }
+            </div>
+        </section>
+    }
   </div>
 </section>
