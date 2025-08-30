@@ -6,7 +6,7 @@ import { Portfolio, TimelineItem } from '../../core/portfolio.service';
   selector: 'app-timeline',
   imports: [NgFor, NgIf],
   templateUrl: './timeline.html',
-  styleUrl: './timeline.scss'
+  styleUrls: ['./timeline.scss']
 })
 export class Timeline {
   items: TimelineItem[] = [];

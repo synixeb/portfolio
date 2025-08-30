@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 import { Portfolio, TimelineItem, Skill, Project, Profile } from '../../core/portfolio.service';
 import { Timeline } from '../timeline/timeline';
 import { Projects } from '../projects/projects';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Timeline, Projects],
+  imports: [RouterLink, Timeline, Projects, NgIf],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrls: ['./home.scss']
 })
 export class Home {
   timelinePreview: TimelineItem[] = [];

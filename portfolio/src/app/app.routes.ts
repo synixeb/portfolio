@@ -10,6 +10,7 @@ export const routes: Routes = [
 	{ path: '', component: Home, title: 'Accueil' },
 	{ path: 'accueil', redirectTo: '', pathMatch: 'full' },
 	{ path: 'projets', component: Projects, title: 'Projets' },
+	{ path: 'competences', component: Skills, title: 'Compétences' },
 	{ path: 'contact', component: Contact, title: 'Contact' },
 	{ path: '**', redirectTo: '' }
 ];

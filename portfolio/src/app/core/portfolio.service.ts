@@ -74,39 +74,41 @@ export class Portfolio {
   getTimeline(): TimelineItem[] {
     return [
       { date: '2024-2025', title: 'BUT 3° année - Alternance Développeur Full‑Stack', description: 'NestJS, React, TypeScript, tests E2E.', type: 'formation' },
+      { date: 'été 2024', title: 'Stage Développeur HL7', description: 'Développement d\'interfaces pour la santé.', type: 'experience' },
       { date: '2023-2024', title: 'BUT année spéciale', description: 'Angular/TypeScript, contribution à un module UI.', type: 'formation' },
+      { date: 'été 2023', title: 'Stage Développeur Laravel', description: 'Développement d\'applications web avec Laravel pour la gestion de ruches.', type: 'experience' },
       { date: '2021-2023', title: 'BTS SIO - Solutions Logicielles et Applications Métiers', description: 'Développement d\'applications web et mobile.', type: 'formation' },
       { date: '2020-2021', title: 'Baccalauréat Technologique', description: 'Découverte du code et premiers projets perso.', type: 'formation' }
     ];
   }
 
   getSkills(): Skill[] {
-    return 
-      { name: 'TypeScript', category: ['Frontend', 'Language'], type: 'Langage' },
-      { name: 'Angular', category: ['Frontend', 'Framework'], type: 'Framework' },
-      { name: 'HTML/CSS/SCSS', category: ['Frontend', 'Markup', 'Style', 'Language'], type: 'Langage' },
-      { name: 'Tkinter', category: ['Frontend', 'Framework'], type: 'Framework' },
-      { name: 'Vue.js', category: ['Frontend', 'Framework'], type: 'Framework' },
-      { name: 'JavaScript', category: ['Frontend', 'Language'], type: 'Langage' },
-      { name: 'PHP', category: ['Backend', 'Language'], type: 'Langage' },
-      { name: 'Python', category: ['Backend', 'Language'], type: 'Langage' },
-      { name: 'C#', category: ['Backend', 'Language'], type: 'Langage' },
-      { name: 'C', category: ['Backend', 'Language'], type: 'Langage' },
-      { name: 'Laravel', category: ['Backend', 'Framework'], type: 'Framework' },
-      { name: 'Java', category: ['Backend', 'Language'], type: 'Langage' },
-      { name: 'NestJS', category: ['Backend', 'Framework'], type: 'Framework' },
-      { name: 'MySQL', category: ['Backend', 'Database'], type: 'Base de données' },
-      { name: 'MongoDB', category: ['Backend', 'Database'], type: 'Base de données' },
-      { name: 'PostgreSQL', category: ['Backend', 'Database'], type: 'Base de données' },
-      { name: 'PHPMyAdmin', category: ['Backend', 'Database'], type: 'Base de données' },
-      { name: 'Git', category: ['DevOps', 'Version Control'], type: 'DevOps' },
-      { name: 'Node.js', category: ['Backend', 'Runtime'], type: 'Autre' },
-      { name: 'GitHub', category: ['DevOps', 'Version Control'], type: 'DevOps' },
-      { name: 'GitLab', category: ['DevOps', 'Version Control'], type: 'DevOps' },
-      { name: 'Jest', category: ['DevOps', 'Testing'], type: 'DevOps' },
-      { name: 'Postman', category: ['Logicielles', 'DevOps', 'API Testing'], type: 'DevOps' },
-      { name: 'Docker', category: ['DevOps', 'Containerization'], type: 'DevOps' }
-    ];
+  return [
+        { name: 'TypeScript', category: ['Frontend', 'Language'], type: 'Langage', icon: 'devicon-typescript-plain' },
+        { name: 'Angular', category: ['Frontend', 'Framework'], type: 'Framework' },
+        { name: 'HTML/CSS/SCSS', category: ['Frontend', 'Markup', 'Style', 'Language'], type: 'Langage' },
+        { name: 'Tkinter', category: ['Frontend', 'Framework'], type: 'Framework' },
+        { name: 'Vue.js', category: ['Frontend', 'Framework'], type: 'Framework' },
+        { name: 'JavaScript', category: ['Frontend', 'Language'], type: 'Langage' },
+        { name: 'PHP', category: ['Backend', 'Language'], type: 'Langage' },
+        { name: 'Python', category: ['Backend', 'Language'], type: 'Langage' },
+        { name: 'C#', category: ['Backend', 'Language'], type: 'Langage' },
+        { name: 'C', category: ['Backend', 'Language'], type: 'Langage' },
+        { name: 'Laravel', category: ['Backend', 'Framework'], type: 'Framework' },
+        { name: 'Java', category: ['Backend', 'Language'], type: 'Langage' },
+        { name: 'NestJS', category: ['Backend', 'Framework'], type: 'Framework' },
+        { name: 'MySQL', category: ['Backend', 'Database'], type: 'Base de données' },
+        { name: 'MongoDB', category: ['Backend', 'Database'], type: 'Base de données' },
+        { name: 'PostgreSQL', category: ['Backend', 'Database'], type: 'Base de données' },
+        { name: 'PHPMyAdmin', category: ['Backend', 'Database'], type: 'Base de données' },
+        { name: 'Git', category: ['DevOps', 'Version Control'], type: 'DevOps' },
+        { name: 'Node.js', category: ['Backend', 'Runtime'], type: 'Autre' },
+        { name: 'GitHub', category: ['DevOps', 'Version Control'], type: 'DevOps' },
+        { name: 'GitLab', category: ['DevOps', 'Version Control'], type: 'DevOps' },
+        { name: 'Jest', category: ['DevOps', 'Testing'], type: 'DevOps' },
+        { name: 'Postman', category: ['Logicielles', 'DevOps', 'API Testing'], type: 'DevOps' },
+        { name: 'Docker', category: ['DevOps', 'Containerization'], type: 'DevOps' }
+      ];
   }
 
   getProjects(): Project[] {

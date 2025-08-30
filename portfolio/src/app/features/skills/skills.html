@@ -1,0 +1,59 @@
+<section class="skills-list">
+  <h2>Compétences</h2>
+
+  <div class="search">
+    <input #q type="search" placeholder="Rechercher une compétence..." (input)="onSearch(q.value)" aria-label="Rechercher une compétence" />
+  </div>
+
+  <div class="groups">
+    <section class="skills-group" *ngFor="let g of grouped">
+      <h3 class="group-title">{{ g.type }}</h3>
+      <div class="grid">
+        <!-- rendu des cartes : click + activation clavier (Enter / Space) -->
+        <article
+          class="card"
+          *ngFor="let s of g.items"
+          (click)="openSkill(s)"
+          (keydown.enter)="openSkill(s)"
+          (keydown.space)="$event.preventDefault(); openSkill(s)"
+          tabindex="0"
+          role="button"
+          aria-haspopup="dialog"
+          aria-label="Ouvrir {{ s.name }} - voir projets liés"
+        >
+          <i [class]="'devicon-' + s.icon + ' colored skill-icon'" *ngIf="s.icon"></i>
+          <div class="name">{{ s.name }}</div>
+          <div class="meta">{{ s.category?.join(' • ') }}</div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div
+    class="modal"
+    *ngIf="selectedSkill as s"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ s.name }} — Détails"
+    (click)="closeSkill()"
+  >
+    <div
+      class="modal-card"
+      tabindex="0"
+      (click)="$event.stopPropagation()"
+      (keydown.escape)="closeSkill()"
+    >
+      <button class="close" (click)="closeSkill()" aria-label="Fermer la fenêtre">✕</button>
+      <h3>{{ s.name }}</h3>
+      <p class="meta">{{ s.type }}</p>
+      <p *ngIf="s.description">{{ s.description }}</p>
+
+      <div *ngIf="selectedProjects?.length">
+        <h4>Projets liés</h4>
+        <ul>
+          <li *ngFor="let p of selectedProjects">{{ p.name }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,7 +6,7 @@ import { Portfolio, Project } from '../../core/portfolio.service';
   selector: 'app-projects',
   imports: [NgFor, NgIf],
   templateUrl: './projects.html',
-  styleUrl: './projects.scss'
+  styleUrls: ['./projects.scss']
 })
 export class Projects {
   projects: Project[] = [];

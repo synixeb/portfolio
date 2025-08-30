@@ -1,34 +1,16 @@
 .footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     color: var(--muted);
     border-top: 1px solid var(--border);
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--bg, #fff); // Ajoutez la couleur de fond appropriée
-    z-index: 100;
+    background-color: var(--bg, #fff);
+    z-index: 100%;
+    height: auto; // Permet au footer de s'adapter à son contenu
 }
 
-.footer a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.grid-item {
-    background-color: var(--bg);
-    padding: 1rem;
-    border: 1px solid var(--border);
+body {
+    padding-bottom: 2rem; // Ajustez cette valeur en fonction de la hauteur de votre footer
 }

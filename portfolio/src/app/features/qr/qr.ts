@@ -3,20 +3,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'app-qr',
     templateUrl: './qr.html',
-    styleUrl: './qr.scss',
+    styleUrls: ['./qr.scss'],
     standalone: true
 })
 export class QRComponent implements OnInit {
-    qrCodeData: string = 'https://www.youtube.com/watch?v=7jYGNkGZxgY';
+    qrCodeData: string = '';
     
     ngOnInit(): void {
-        if (typeof window !== 'undefined') {
+        if (this.qrCodeData !== '') {
             window.location.href = this.qrCodeData;
         }
     }
 
     open(): void {
-        if (typeof window !== 'undefined') {
+        if (this.qrCodeData !== '') {
             window.open(this.qrCodeData, '_blank', 'noopener');
         }
     }

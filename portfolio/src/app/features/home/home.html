@@ -9,10 +9,9 @@
         <a class="btn btn--secondary" routerLink="/contact" aria-label="Me contacter">Me contacter</a>
         <a class="btn" routerLink="/projets" aria-label="Voir les projets">Voir mes projets</a>
       </div>
-      
-          <div class="side-projects">
-          <app-projects></app-projects>
-        </div>
+      <div class="side-projects">
+        <app-projects></app-projects>
+      </div>
     </div>
 
     <div class="hero-meta" aria-label="Informations complémentaires">
@@ -26,15 +25,11 @@
       <ul class="stats" role="list" aria-label="Statistiques">
         <li><strong>{{ profile?.xp }}</strong> ans d'expérience</li>
         <li><strong>{{ profile?.nbProjects }}</strong> projets</li>
+        <li *ngIf="profile?.personal as p">
+          <strong>permis de conduire</strong>
+        </li>
       </ul>
-
-      <div class="featured">
-        <h3>Projet en vedette — {{ featuredProject?.name }}</h3>
-        <p>{{ featuredProject?.description }}</p>
-        <a class="btn btn--secondary" routerLink="/projets/portfolio" aria-label="Voir le projet">Voir le projet</a>
-      </div>
-        <app-timeline></app-timeline>
-
+      <app-timeline></app-timeline>
     </div>
   </div>
 </section>
