@@ -12,6 +12,7 @@ export type Skill = {
   name: string;
   type?: 'Langage' | 'Framework' | 'Base de données' | 'DevOps' | 'Logicielles' | 'Autre';
   category?: string[];
+  description?: string;
   icon?: string; // optional icon name/url
 };
 
@@ -80,7 +81,7 @@ export class Portfolio {
   }
 
   getSkills(): Skill[] {
-    return [
+    return 
       { name: 'TypeScript', category: ['Frontend', 'Language'], type: 'Langage' },
       { name: 'Angular', category: ['Frontend', 'Framework'], type: 'Framework' },
       { name: 'HTML/CSS/SCSS', category: ['Frontend', 'Markup', 'Style', 'Language'], type: 'Langage' },

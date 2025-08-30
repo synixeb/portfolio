@@ -23,4 +23,23 @@ export class Skills {
     }
     this.grouped = Array.from(map.entries()).map(([type, items]) => ({ type, items }));
   }
+
+  openSkill(s: Skill) {
+    this.selectedSkill = s;
+    this.selectedProjects = this.projectsBySkill[s.name] || [];
+    setTimeout(() => {
+      const el = document.querySelector('.modal-card') as HTMLElement | null;
+      if (el) el.focus();
+    }, 0);
+  }
+
+  closeSkill() {
+    this.selectedSkill = null;
+    this.selectedProjects = [];
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.selectedSkill) this.closeSkill();
+  }
 }
