@@ -31,6 +31,8 @@
   gap: .5rem;
 }
 
+.links a:not(:last-child) { margin-right: .35rem; }
+
 .skill-icon {
   display: flex;
   align-items: center;
