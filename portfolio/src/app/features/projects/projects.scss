@@ -26,4 +26,13 @@
   .tech { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:.5rem;
     li { display:inline-block; padding:.25rem .55rem; border-radius: 999px; background: var(--surface-2); border:1px solid var(--border); font-size:.8rem; color: var(--text); }
   }
+
+.tag-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: .4rem;
+  display: inline-block;
+  object-fit: contain;
+}
 }

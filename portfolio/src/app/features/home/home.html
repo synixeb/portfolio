@@ -29,6 +29,17 @@
           <strong>permis de conduire</strong>
         </li>
       </ul>
+      
+      <a class="alternance-box" *ngIf="alternance?.length" routerLink="/alternance" aria-label="Voir mon alternance">
+        <div class="logo" [ngStyle]="{'background-image': 'url(' + (alternance[0].logo || 'assets/images/WiiS_logo.jpg') + ')'}" aria-hidden="true"></div>
+        <div class="content">
+          <strong>Alternance</strong>
+          <span class="alt-summary">{{ alternance[0].title }} chez {{ alternance[0].company }}</span>
+          <div class="alt-meta">{{ alternance[0].startDate | date:'dd/MM/yyyy' }} — {{ alternance[0].endDate | date:'dd/MM/yyyy' }} • {{ alternance[0].location }}</div>
+        </div>
+        <div class="alt-cta" aria-hidden="true">→</div>
+      </a>
+
       <app-timeline></app-timeline>
     </div>
   </div>
