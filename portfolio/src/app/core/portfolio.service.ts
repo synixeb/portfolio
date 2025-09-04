@@ -48,6 +48,31 @@ export type Profile = {
   };
 };
 
+export type Alternance = {
+  title: string;
+  description: string;
+  company: string;
+  location: string;
+  startDate: Date | string | null;
+  endDate: Date | string | null;
+  technologies: string[];
+  link?: string;
+  logo?: string;
+  environment?: string;
+  missions?: string[];
+  rythme?: string;
+  companySize?: string;
+  supervisor?: string;
+  accomplishments?: string[];
+  contact?: {
+    email?: string;
+    phone?: string;
+    website?: string;
+  };
+};
+
+
+
 @Injectable({ providedIn: 'root' })
 export class Portfolio {
   getProfile(): Profile {
@@ -130,6 +155,33 @@ export class Portfolio {
     ];
   }
 
+  getAlternances(): Alternance[] {
+    return [
+      {
+        title: "Développeur Full-Stack",
+        description: "Développement et maintenance d'applications médicales (Manager et Cockpit), gestion des flux patients et interopérabilité des systèmes hospitaliers",
+        company: "Wiis",
+        location: "213 Rue de Gerland, 69007 Lyon",
+        logo: 'assets/images/WiiS_logo.jpg',
+        startDate: new Date("2024-09-06"),
+        endDate: new Date("2025-08-29"),
+        technologies: ["TypeScript", "NestJS", "React", "Jest", "MySQL"],
+        environment: "Méthodologie Agile avec sprints de 2 semaines, Windows 11, GitHub, MySQL Workbench, Microsoft Teams, Confluence",
+        missions: [
+          "Optimisation de la gestion des statuts d'études médicales",
+          "Sécurisation des sessions utilisateur",
+          "Ajout de test E2E pour les anciennes et nouvelles fonctionnalités",
+          "Mise à jour de la documentation technique et fonctionnelle",
+          "Participation aux cycles de développement Agile (sprints de 2 semaines)"
+        ],
+        rythme: "Alternance",
+        companySize: "28 employés",
+        supervisor: 'Sjarlet Kroes',
+        contact: { email: 'contact@wiis.com', website: 'https://wiis.fr' },
+      }
+    ];
+  }
+
   getFeaturedProject(id: string): Project | null {
     return this.getProjects().find(project => project.id === id) || null;
   }
@@ -154,3 +206,4 @@ export class Portfolio {
     return map;
   }
 }
+

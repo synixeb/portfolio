@@ -1,0 +1,60 @@
+<section class="alternance-list">
+	<div class="header-row">
+		<h2>Mon alternance</h2>
+		<p class="sub">Missions, technologies et résultats</p>
+	</div>
+
+	<div *ngIf="alternances?.length; else empty" class="cards">
+	<article class="card" *ngFor="let a of alternances; let i = index">
+		<div class="card-details">
+			<header class="alt-header">
+				<div class="logo">
+					<img [src]="a.logo || 'assets/icons/angular_logo.png'" [alt]="a.company + ' logo'" />
+				</div>
+				<div class="title-block">
+					<h3>{{ a.title }} <span class="at">—</span> <span class="company">{{ a.company }}</span></h3>
+					<p class="meta">{{ a.startDate | date }} — {{ a.endDate | date }} • {{ a.location }}</p>
+				</div>
+			</header>
+
+				<p class="desc">{{ a.description }}</p>
+
+				<div class="badges" *ngIf="a.technologies?.length">
+					<ul class="tech">
+						<li class="badge" *ngFor="let t of a.technologies">
+							<img *ngIf="skillIconMap[t.toLowerCase()]" class="badge-icon" [src]="skillIconMap[t.toLowerCase()]" [alt]="t + ' icon'" />
+							<span *ngIf="!skillIconMap[t.toLowerCase()]">{{ t }}</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="two-col">
+					<div class="missions" *ngIf="a.missions?.length && expanded[i]">
+						<h4>Missions principales</h4>
+						<ul>
+							<li *ngFor="let m of a.missions">{{ m }}</li>
+						</ul>
+					</div>
+
+					<div class="extras" *ngIf="expanded[i]">
+						<p *ngIf="a.supervisor"><strong>Superviseur :</strong> {{ a.supervisor }}</p>
+						<p *ngIf="a.companySize"><strong>Taille :</strong> {{ a.companySize }}</p>
+						<p *ngIf="a.environment"><strong>Environnement :</strong> {{ a.environment }}</p>
+						<p *ngIf="a.accomplishments?.length"><strong>Accomplissements :</strong>
+							<span class="accomp">{{ a.accomplishments?.join(' • ') }}</span>
+						</p>
+						<p *ngIf="a.contact?.email"><strong>Contact :</strong> <a href="mailto:{{ a.contact?.email }}">{{ a.contact?.email }}</a></p>
+						<p *ngIf="a.contact?.website"><a class="company-link" [href]="a.contact?.website" target="_blank" rel="noopener">{{ a.contact?.website }}</a></p>
+					</div>
+				</div>
+
+				<!-- mobile toggle -->
+				<button class="toggle" *ngIf="isMobile" (click)="toggle(i)" aria-expanded="{{ expanded[i] }}">{{ expanded[i] ? 'Masquer' : 'Détails' }}</button>
+			</div>
+		</article>
+	</div>
+
+	<ng-template #empty>
+		<p>Aucune alternance pour le moment.</p>
+	</ng-template>
+</section>
