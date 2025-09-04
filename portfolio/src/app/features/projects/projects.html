@@ -16,7 +16,10 @@
       <p class="type">{{ p.type }}</p>
       <p class="desc">{{ p.description }}</p>
       <ul class="tech">
-        <li class="tag" *ngFor="let t of p.tech">{{ t }}</li>
+        <li class="tag" *ngFor="let t of p.tech">
+          <img *ngIf="skillIconMap[t.toLowerCase()]" class="tag-icon" [src]="skillIconMap[t.toLowerCase()]" [alt]="t + ' icon'" />
+          <span *ngIf="!skillIconMap[t.toLowerCase()]">{{ t }}</span>
+        </li>
       </ul>
     </article>
   <div class="no-results" *ngIf="filteredProjects.length === 0">Aucun projet ne correspond à votre recherche.</div>

@@ -16,10 +16,19 @@ export class Skills {
   selectedSkill: Skill | null = null;
   selectedProjects: Project[] = [];
   projectsBySkill: Record<string, Project[]> = {};
+  skillIconMap: Record<string, string> = {};
   constructor(private portfolio: Portfolio) {
     this.skills = this.portfolio.getSkills();
     this.buildGroups();
     this.projectsBySkill = this.portfolio.getSkillProjectMap();
+    // build skill name (lowercase) -> icon path map
+    const skills = this.portfolio.getSkills() || [];
+    for (const s of skills) {
+      if (s && s.name) {
+        const key = s.name.toLowerCase();
+        if (s.icon) this.skillIconMap[key] = 'assets/icons/' + s.icon;
+      }
+    }
   }
 
   onSearch(value: string) {

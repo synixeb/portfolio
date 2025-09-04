@@ -21,7 +21,9 @@
           aria-haspopup="dialog"
           aria-label="Ouvrir {{ s.name }} - voir projets liés"
         >
-          <i [class]="'devicon-' + s.icon + ' colored skill-icon'" *ngIf="s.icon"></i>
+          @if (s.icon) {
+            <img [src]="'assets/icons/' + s.icon" alt="{{ s.name }} icon" class="skill-icon" />
+          }
           <div class="name">{{ s.name }}</div>
           <div class="meta">{{ s.category?.join(' • ') }}</div>
         </article>
@@ -50,9 +52,26 @@
 
       <div *ngIf="selectedProjects?.length">
         <h4>Projets liés</h4>
-        <ul>
-          <li *ngFor="let p of selectedProjects">{{ p.name }}</li>
-        </ul>
+        <div class="related-grid">
+          <article class="card" *ngFor="let p of selectedProjects">
+            <img *ngIf="p.image" [src]="p.image" [alt]="p.name" loading="lazy" />
+            <div class="header">
+              <h3>{{ p.name }}</h3>
+              <div class="links">
+                <a *ngIf="p.link" [href]="p.link" target="_blank" rel="noopener">Voir</a>
+                <a *ngIf="p.repo" [href]="p.repo" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+            <p class="type">{{ p.type }}</p>
+            <p class="desc">{{ p.description }}</p>
+            <ul class="tech">
+              <li class="tag" *ngFor="let t of p.tech">
+                <img *ngIf="skillIconMap[t.toLowerCase()]" class="tag-icon" [src]="skillIconMap[t.toLowerCase()]" [alt]="t + ' icon'" />
+                <span *ngIf="!skillIconMap[t.toLowerCase()]">{{ t }}</span>
+              </li>
+            </ul>
+          </article>
+        </div>
       </div>
     </div>
   </div>

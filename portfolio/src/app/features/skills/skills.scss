@@ -23,6 +23,30 @@
   .level-badge { position: absolute; top: .6rem; right: .6rem; background: var(--surface-2); border:1px solid var(--border); padding: .2rem .5rem; border-radius: 999px; font-size: .75rem; }
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .5rem;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
 /* Modal overlay + card */
 .modal {
   position: fixed;
@@ -84,3 +108,11 @@
     }
   }
 }
+
+/* Grille pour projets liés dans la modal skills */
+.related-grid { display: grid; gap: .75rem; grid-template-columns: 1fr; margin-top: .5rem; }
+@media (min-width: 640px) {
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.tag-icon { width: 18px; height: 18px; vertical-align: middle; margin-right: .35rem; object-fit: contain; }
