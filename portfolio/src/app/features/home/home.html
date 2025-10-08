@@ -1,13 +1,22 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <h1>Bonjour, je suis {{ profile?.name }}</h1>
+      <h1>{{ profile?.name }}</h1>
       <p class="about">{{ profile?.about }}</p>
+
+      <a class="alternance-box" *ngIf="alternance?.length" routerLink="/alternance" aria-label="Voir mon alternance">
+        <div class="logo" [ngStyle]="{'background-image': 'url(' + (alternance[0].logo || 'assets/images/WiiS_logo.jpg') + ')'}" aria-hidden="true"></div>
+        <div class="content">
+          <strong>Alternance</strong>
+          <span class="alt-summary">{{ alternance[0].title }} chez {{ alternance[0].company }}</span>
+          <div class="alt-meta">{{ alternance[0].startDate | date:'dd/MM/yyyy' }} — {{ alternance[0].endDate | date:'dd/MM/yyyy' }} • {{ alternance[0].location }}</div>
+        </div>
+        <div class="alt-cta" aria-hidden="true">→</div>
+      </a>
 
       <div class="cta">
         <a class="btn" href="assets/documents/cv.pdf" download aria-label="Télécharger le CV">Télécharger le CV</a>
         <a class="btn btn--secondary" routerLink="/contact" aria-label="Me contacter">Me contacter</a>
-        <a class="btn" routerLink="/projets" aria-label="Voir les projets">Voir mes projets</a>
       </div>
       <div class="side-projects">
         <app-projects></app-projects>
@@ -23,23 +32,17 @@
       </ul>
 
       <ul class="stats" role="list" aria-label="Statistiques">
-        <li><strong>{{ profile?.xp }}</strong> ans d'expérience</li>
+        @if (profile?.xp) {
+          <li><strong>{{ profile?.xp }}</strong> ans d'expérience</li>
+        }
         <li><strong>{{ profile?.nbProjects }}</strong> projets</li>
-        <li *ngIf="profile?.personal as p">
-          <strong>permis de conduire</strong>
-        </li>
+        @if (profile?.location) {
+            <li><strong>{{ profile?.location }}</strong></li>
+        }
+        @if (profile?.personal?.drivingLicense) {
+          <li><strong>Permis de conduire</strong></li>
+        }
       </ul>
-      
-      <a class="alternance-box" *ngIf="alternance?.length" routerLink="/alternance" aria-label="Voir mon alternance">
-        <div class="logo" [ngStyle]="{'background-image': 'url(' + (alternance[0].logo || 'assets/images/WiiS_logo.jpg') + ')'}" aria-hidden="true"></div>
-        <div class="content">
-          <strong>Alternance</strong>
-          <span class="alt-summary">{{ alternance[0].title }} chez {{ alternance[0].company }}</span>
-          <div class="alt-meta">{{ alternance[0].startDate | date:'dd/MM/yyyy' }} — {{ alternance[0].endDate | date:'dd/MM/yyyy' }} • {{ alternance[0].location }}</div>
-        </div>
-        <div class="alt-cta" aria-hidden="true">→</div>
-      </a>
-
       <app-timeline></app-timeline>
     </div>
   </div>
