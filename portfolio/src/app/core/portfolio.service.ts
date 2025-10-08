@@ -34,7 +34,7 @@ export type Profile = {
   location: string;
   email: string;
   phone: string;
-  xp: number;
+  xp?: number;
   nbProjects: number;
   socials: {
     github?: string;
@@ -42,7 +42,8 @@ export type Profile = {
   };
   personal: {
     photo?: string;
-    hobbies: string[];
+    hobbies?: string[];
+    location?: string;
     interests?: string[];
     drivingLicense?: boolean;
   };
@@ -79,11 +80,10 @@ export class Portfolio {
     return {
       name: 'Evan Bertin',
       shortAbout: 'Développeur passionné.',
-      about: 'Développeur passionné avec ' + (new Date().getFullYear() - 2019) + ' ans d\'expérience dans le développement web.',
+      about: 'Développeur passionné avec une solide formation en informatique et une expérience pratique en développement web et logiciel. Toujours curieux d\'apprendre de nouvelles technologies et de relever des défis techniques.',
       location: 'Sainte-Foy-lès-Lyon',
       email: 'evanbertin69110@gmail.com',
       phone: '0652802996',
-      xp: new Date().getFullYear() - 2019,
       nbProjects: this.getProjects().length,
       socials: {
         github: 'https://github.com/synixeb',
@@ -122,7 +122,7 @@ export class Portfolio {
         { name: 'Laravel', category: ['Backend', 'Framework'], type: 'Framework', icon: 'laravel_logo.png' },
         { name: 'Symfony', category: ['Backend', 'Framework'], type: 'Framework', icon: 'symfony_logo.png' },
         { name: 'Bootstrap', category: ['Frontend', 'Framework'], type: 'Framework', icon: 'bootstrap_logo.png' },
-        { name: 'Tkinter', category: ['Frontend', 'Framework'], type: 'Framework', icon: 'python_logo.png' },
+        { name: 'Tkinter', category: ['Frontend', 'Framework'], type: 'Framework' },
         { name: 'Angular', category: ['Frontend', 'Framework'], type: 'Framework', icon: 'angular_logo.png' },
         { name: 'Vue.js', category: ['Frontend', 'Framework'], type: 'Framework', icon: 'vue.js_logo.png' },
         { name: 'NestJS', category: ['Backend', 'Framework'], type: 'Framework', icon: 'nestjs_logo.png' },
@@ -148,7 +148,7 @@ export class Portfolio {
   getProjects(): Project[] {
     return [
       {id: 'portfolio', name: 'Portfolio', type: 'Personnels', description: 'Site personnel avec frise, compétences et projets.', tech: ['Angular', 'SCSS', 'Git', 'GitHub'], repo: 'https://github.com/synixeb/portfolio', link: '#' },
-      {id: 'quiet', name: 'Quiet', type: 'Personnels', description: 'Application de lecture de livres, films et séries en local.', tech: ['Tkinter', 'Python', 'Git', 'GitHub'], repo: 'https://github.com/synixeb/Quiet' },
+      {id: 'quiet', name: 'Quiet', type: 'Personnels', description: 'Application de lecture de livres, films et séries en local.', tech: ['Python', 'Tkinter', 'Git', 'GitHub'], repo: 'https://github.com/synixeb/Quiet' },
       {id: 'discord-bot-test', name: 'DiscordBotTest', type: 'Personnels', description: 'Bot Discord centralisant l\'utilisation de plusieurs API utiles pour mes études en BUT', tech: ['Python', 'discord.py', 'Git', 'GitHub'], repo: 'https://github.com/synixeb/DiscordBotTest' },
       {id: 'weirdle', name: 'Weirdle', type: 'Scolaires', description: 'Jeu de mots basé sur le principe de Wordle.', tech: ['JavaScript', 'HTML/CSS', 'PHP', 'Git', 'GitLab'], repo: 'https://github.com/synixeb/Weirdle'},
       {id: 'gsb-praticiens', name: 'GSB Praticiens', type: 'Scolaires', description: 'Application de gestion des praticiens pour le GSB.', tech: ['Laravel', 'PHP', 'MySQL'], repo: 'https://github.com/synixeb/GSBPraticiensEpreuve' }
@@ -160,7 +160,7 @@ export class Portfolio {
       {
         title: "Développeur Full-Stack",
         description: "Développement et maintenance d'applications médicales (Manager et Cockpit), gestion des flux patients et interopérabilité des systèmes hospitaliers",
-        company: "Wiis",
+        company: "Wiis - Workflow Innovations Imaging Solutions",
         location: "213 Rue de Gerland, 69007 Lyon",
         logo: 'assets/images/WiiS_logo.jpg',
         startDate: new Date("2024-09-06"),
